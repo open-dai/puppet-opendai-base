@@ -1,0 +1,10 @@
+name 'root-base'
+version ''
+
+author 'root'
+license ''
+project_page ''
+source ''
+summary ''
+description ''
+dependency '764/odaiZabbix', '==0.0.1'
