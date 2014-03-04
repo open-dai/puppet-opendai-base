@@ -11,13 +11,20 @@
 		<project>mysql</project>
 		<project>odaiapiman</project>
 		<project>odaibam</project>
+		<project>odaibps</project>
+		<project>odaiesb</project>
 		<project>odaigreg</project>
 		<project>odaijbossmaster</project>
+		<project>odaijbossmasterbb</project>
+		<project>odaijbossslave</project>
+		<project>odaijbossslavebb</project>
+		<project>odainfs</project>
 		<project>odaiproxy</project>
 		<project>odaisoamysql</project>
 		<project>odaiweb</project>
 		<project>odaizabbix</project>
 		<project>odaiZabbix</project>
+		<project>odaizabbixproxy</project>
 		<project>opendai_java</project>
 		<project>rdiff-backup</project>
 		<project>stdlib</project>

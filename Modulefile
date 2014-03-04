@@ -1,5 +1,5 @@
-name 'root-base'
-version ''
+name 'opendai-base'
+version '1.0.0'
 
 author 'root'
 license ''

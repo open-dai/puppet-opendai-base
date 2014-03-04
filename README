@@ -1,3 +1,7 @@
 base
 
-This is the base module.
+This is the base module of the classes of the Open-DAI project.
+This module allows for the dynamic creation of the hosts in the Open-DAI architecture.
+The role parameter is passes to the cloudstack environment at the creation of the new Vm or the hostname is used in the case of a different cloud environment that is not able to send the role attribute.
+
+In this way a generic template is "morphed" dynamically to the required middleware component of the Open-DAI architecture, with all the configurations needed. 
