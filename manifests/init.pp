@@ -42,14 +42,17 @@ class base {
       ensure => present;
   }
 
-  class { 'mcollective':
+  class { '::mcollective':
     stomp_server         => $puppet_master,
-    server               => true,
+	middleware_hosts     => [$puppet_master],
+	middleware_password  => hiera('stomp_passwd', ""),
+    psk					 => hiera('mc_security_psk', ""),
+	server               => true,
     client               => false,
-    mc_security_provider => 'psk',
-    mc_security_psk      => hiera('mc_security_psk', ""),
-    stomp_port           => 6163,
-    stomp_passwd         => hiera('stomp_passwd', ""),
+#    mc_security_provider => 'psk',
+#    mc_security_psk      => hiera('mc_security_psk', ""),
+#    stomp_port           => 6163,
+#    stomp_passwd         => hiera('stomp_passwd', ""),
     fact_source          => 'yaml',
   }
 
