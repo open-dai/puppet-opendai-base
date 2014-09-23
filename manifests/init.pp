@@ -43,7 +43,7 @@ class base {
   }
 
   class { '::mcollective':
-    stomp_server         => $puppet_master,
+#    stomp_server         => $puppet_master,
 	middleware_hosts     => [$puppet_master],
 	middleware_password  => hiera('stomp_passwd', ""),
     psk					 => hiera('mc_security_psk', ""),
