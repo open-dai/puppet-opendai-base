@@ -53,7 +53,7 @@ class base {
 #    mc_security_psk      => hiera('mc_security_psk', ""),
 #    stomp_port           => 6163,
 #    stomp_passwd         => hiera('stomp_passwd', ""),
-    fact_source          => 'yaml',
+    factsource          => 'yaml',
   }
 
   mcollective::plugins::plugin { 'stomp':
