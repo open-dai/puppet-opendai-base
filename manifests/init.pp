@@ -56,10 +56,10 @@ class base {
     factsource          => 'yaml',
   }
 
-  mcollective::plugins::plugin { 'stomp':
-    ensure => present,
-    type   => 'connector',
-  }
+#  mcollective::plugins::plugin { 'stomp':
+#    ensure => present,
+#    type   => 'connector',
+#  }
 
   package { 'fail2ban': ensure => present, }
 
