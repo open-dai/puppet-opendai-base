@@ -43,29 +43,23 @@ class base {
   }
 
   class { '::mcollective':
-#    stomp_server         => $puppet_master,
 	middleware_hosts     => [$puppet_master],
 	middleware_password  => hiera('stomp_passwd', ""),
     psk					 => hiera('mc_security_psk', ""),
 	server               => true,
     client               => false,
-#    mc_security_provider => 'psk',
-#    mc_security_psk      => hiera('mc_security_psk', ""),
-#    stomp_port           => 6163,
-#    stomp_passwd         => hiera('stomp_passwd', ""),
     factsource          => 'yaml',
+	before  => Anchor['base:end_common'],
   }
 
   mcollective::plugin { 'puppet':
     package => true,
+	before  => Anchor['base:end_common'],
   }
 
   mcollective::plugin { 'service':
     package => true,
-  }
-
-  mcollective::plugin { 'process':
-    package => true,
+	before  => Anchor['base:end_common'],
   }
 
   package { 'fail2ban': ensure => present, }
@@ -160,6 +154,7 @@ class base {
 	  mcollective::plugin { 'apt':
 		source => 'puppet:///modules/base/plugins/jboss',
 	  }
+	  
       class { 'odaijbossmasterbb':
         package_url             => "${repo_server}",
         bind_address            => $::ipaddress,

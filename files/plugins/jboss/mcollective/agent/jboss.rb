@@ -1,12 +1,7 @@
 module MCollective
   module Agent
     class Jboss<RPC::Agent
-        activate_when do
-			begin
-				true
-			 end
-		end
-
+ 
 		action "cli" do
 			reply[:status] = run("./jboss-cli.sh -c --controller='#{Facts["ipaddress"]}' --user=#{request[:cli_user]} --password=#{request[:cli_pwd]} command=':read-resource(include-runtime=false, recursive=false, recursive-depth=2)'", :stdout => :out, :stderr => :err, :cwd => "/opt/jboss/bin")
 			reply[:out].chomp!
@@ -60,7 +55,7 @@ module MCollective
 				end
 				reply[:out].chomp!
 				reply[:err].chomp!
-            end
+            
 		end
 
 		action "server_status" do
