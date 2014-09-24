@@ -18,7 +18,7 @@ class base {
   # central puppet
   # this is a migration temporary issue
   if $::puppet_master == undef {
-    $puppet_master = 'puppet.opendai.eu'
+    $puppet_master = "puppet.${::domain}"
   } else {
     $puppet_master = $::puppet_master
   }
@@ -150,6 +150,9 @@ class base {
       }
     }
     'jbossvdbmaster'       : {
+	  mcollective::plugin { 'apt':
+		source => 'puppet:///modules/base/plugins/jboss',
+	  }
       class { 'odaijbossmasterbb':
         package_url             => "${repo_server}",
         bind_address            => $::ipaddress,
