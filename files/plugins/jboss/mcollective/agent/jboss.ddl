@@ -94,7 +94,7 @@ action "create_datasource", :description => "Create a datasource" do
           :prompt      => "The server profile",
           :description => "The CLI user password",
           :type        => :string,
-		  :default     => "HA"
+		  :default     => "HA",
           :validation  => '^[a-zA-Z\-_()=:,\/\d]+$',
           :optional    => true,
           :maxlength   => 30
@@ -111,7 +111,7 @@ action "create_datasource", :description => "Create a datasource" do
           :prompt      => "jndi_name",
           :description => "The name of the jndi value",
           :type        => :string,
-          :validation  => '^[a-zA-Z\-_\d]+$',
+          :validation  => '^[a-zA-Z\-_:\/\d]+$',
           :optional    => false,
           :maxlength   => 30
 
@@ -127,7 +127,7 @@ action "create_datasource", :description => "Create a datasource" do
           :prompt      => "Driver class",
           :description => "The class of the driver",
           :type        => :string,
-          :validation  => '^[a-zA-Z\-_\d]+$',
+          :validation  => '^[a-zA-Z\-_.\d]+$',
           :optional    => false,
           :maxlength   => 30
 
@@ -135,7 +135,7 @@ action "create_datasource", :description => "Create a datasource" do
           :prompt      => "Connection URL",
           :description => "The URl to connect to the DB",
           :type        => :string,
-          :validation  => '^[a-zA-Z\-_\d]+$',
+          :validation  => '^[a-zA-Z\-_:.\/\d]+$',
           :optional    => false,
           :maxlength   => 30
 
