@@ -25,6 +25,14 @@ action "cli", :description => "Execute a CLI command" do
           :optional    => false,
           :maxlength   => 30
 
+	input :command,
+          :prompt      => "CLI user password",
+          :description => "The CLI user password",
+          :type        => :string,
+          :validation  => '^[a-zA-Z\-_()=:,\/\d]+$',
+          :optional    => false,
+          :maxlength   => 30
+
 	output :msg,
            :description => "The message we received",
            :display_as  => "Message"
@@ -44,6 +52,15 @@ action "cli", :description => "Execute a CLI command" do
 end
 
 action "deploy", :description => "Deploy artefact from File System" do
+	display :always
+ 
+    input :cli_user,
+          :prompt      => "CLI User",
+          :description => "The CLI user",
+          :type        => :string,
+          :validation  => '^[a-zA-Z\-_\d]+$',
+          :optional    => false,
+          :maxlength   => 30
 end
 
 action "deploy_url", :description => "Deploy artefact from URL" do
@@ -125,7 +142,25 @@ action "deploy_url", :description => "Deploy artefact from URL" do
 end
 
 action "server_status", :description => "Return the server status" do
+	display :always
+ 
+    input :cli_user,
+          :prompt      => "CLI User",
+          :description => "The CLI user",
+          :type        => :string,
+          :validation  => '^[a-zA-Z\-_\d]+$',
+          :optional    => false,
+          :maxlength   => 30
 end
 
 action "app_status", :description => "Return the application status" do
+	display :always
+ 
+    input :cli_user,
+          :prompt      => "CLI User",
+          :description => "The CLI user",
+          :type        => :string,
+          :validation  => '^[a-zA-Z\-_\d]+$',
+          :optional    => false,
+          :maxlength   => 30
 end

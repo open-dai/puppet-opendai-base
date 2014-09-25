@@ -3,15 +3,11 @@ module MCollective
     class Jboss<RPC::Agent
  
 		action "cli" do
-			reply[:status] = run("./jboss-cli.sh -c --controller='#{Facts["ipaddress"]}' --user=#{request[:cli_user]} --password=#{request[:cli_pwd]} command=':read-resource(include-runtime=false, recursive=false, recursive-depth=2)'", :stdout => :out, :stderr => :err, :cwd => "/opt/jboss/bin")
+			reply[:status] = run("./jboss-cli.sh -c --controller='#{Facts["ipaddress"]}' --user=#{request[:cli_user]} --password=#{request[:cli_pwd]} command='#{request[:command]}'", :stdout => :out, :stderr => :err, :cwd => "/opt/jboss/bin")
 			reply[:out].chomp!
 			reply[:err].chomp!
+			reply[:msg] = cli_command
 
-			if Facts["hostname"] == "jbossvdbmaster"
-				reply[:msg] = Facts["ipaddress"]
-			else
-				reply[:msg] = "non letto"
-			end
 		end
 
 		action "deploy" do
